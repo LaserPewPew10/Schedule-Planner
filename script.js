@@ -53,8 +53,10 @@ var mm = String(today.getMonth() + 1).padStart(2, "0");
 //January is 0!
 var yyyy = today.getFullYear();
 today = mm + "/" + dd + "/" + yyyy;
-document.write(today);
+//document.write(today);
 // TO GET CURRENT TIME - DONE
+//var currentDay = document.getElementById("#current-day");
+//currentDay.textContent = today;
 // gets the current of the user when are on the website
 function myHour() {
   var d = new Date();
@@ -96,21 +98,27 @@ var time = [
 console.log(time);
 // STYLING - for loop that iterates through the time array to generate the div colors
 
-function colorBlock() {
-  for (var i = 0; i < time.length; i++) {
-    if (myHour === time[i]) {
-      //if time.key === myHour, then block is red
-    }
-    if (myHour < time[i]) {
-      //if time.key < myHour, then block is grey
-    }
-    if (myHour > time[i]) {
-      // if time.key> if time.key < myHour, then block is green
-    }
-    //if (myHour < 09 || myHour > 17){
-    //turn  all the divs to yellow
+$(".time-block").each(function (element) {
+  console.log(this);
+  var timeRow = $(this);
+  var now = myHour();
+  var time = parseInt(timeRow.attr("id").split("-")[1]);
+  console.log(time);
+
+  if (now === time) {
+    $(this).addClass("present");
+    //if time.key === myHour, then block is red
   }
-}
+  if (now > time) {
+    $(this).addClass("past");
+    //if time.key < myHour, then block is grey
+  }
+  if (now < time) {
+    $(this).addClass("future");
+    // if time.key> if time.key < myHour, then block is green
+  }
+});
+
 // code from assignment 28
 // input - creates a pink banner on the page of the assignment after typing text in a textbox above, once you press enter it will create alist item
 // the list item will be that pink banner with the text inside that was typed and will be saved to local storage and have a complete button
