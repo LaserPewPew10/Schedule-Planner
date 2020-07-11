@@ -26,10 +26,7 @@ console.log(myHour());
 
 //TODO: generate the div - create 9 sub divs
 
-//in each sub div display time on the left, input area in the middle, submit button the the right
-//depending on the time of the day, it will diplay differently
 //array of time objects
-
 var time = [
   00,
   01,
@@ -60,25 +57,6 @@ var time = [
 
 console.log(time);
 
-// STYLING - for loop that iterates through the time array to generate the div colors
-// set attribute colors
-// in the for loop use the classes of past present future
-
-// function colorBlock () {
-// for (var i = 0; i < time.length; i++) {
-
-//     if (myHour() === time[i]) {
-//     //if time.key === myHour, then block is red
-//     }
-//     if (myHour() < time[i]) {
-//     //if time.key < myHour, then block is grey
-//     }
-//     if (myHour() > time[i]) {
-//     // if time.key> if time.key < myHour, then block is green
-//     }
-//     //     if (myHour < 09 || myHour > 17){
-//     // //turn  all the divs to yellow
-// }};
 //selects all of the time blocks
 $(".time-block").each(function (element) {
   console.log(this);
@@ -104,19 +82,6 @@ $(".time-block").each(function (element) {
 });
 
 var userInputByHour = [];
-//save button with Javascript
-// var saveButton = document.querySelectorAll(".saveBtn");
-// var descriptionText = document.querySelector(".description");
-// for (let i = 0; i < saveButton.length; i++) {
-//   saveButton[i].addEventListener("click", function () {
-//     console.log("Button was clicked.");
-//     var divHour = event.target.parentNode.getAttribute("id");
-//     var description = descriptionText.value.trim();
-//     console.log(divHour);
-//     console.log(description);
-//     // storeTasks(divHour, description);
-//   });
-// }
 
 // jQuery Save button savebutton is targeted, when save button is clicked
 $(".saveBtn").on("click", function () {
@@ -130,7 +95,7 @@ $(".saveBtn").on("click", function () {
   localStorage.setItem(time, text);
 });
 
-// calling value of hour-9 and placing it in the proper hour description value
+// calling value of starting from hour-9 and placing it in the proper hour description value that was listed in the html.
 $("#hour-9 .description").val(localStorage.getItem("hour-9"));
 $("#hour-10 .description").val(localStorage.getItem("hour-10"));
 $("#hour-11 .description").val(localStorage.getItem("hour-11"));
@@ -140,13 +105,3 @@ $("#hour-14 .description").val(localStorage.getItem("hour-14"));
 $("#hour-15 .description").val(localStorage.getItem("hour-15"));
 $("#hour-16 .description").val(localStorage.getItem("hour-16"));
 $("#hour-17 .description").val(localStorage.getItem("hour-17"));
-
-console.log(mrHour());
-
-// function init() {
-//   // Write code here to check if there are todos in localStorage
-//   // If so, parse the value from localStorage and assign it to the todos variable
-//   todos = JSON.parse(localStorage.getItem("todos")) || [];
-//   // Render todos to the DOM
-//   renderTodos();
-// }
